@@ -1,62 +1,89 @@
 package cn.shenghuo2.homework5;
-
 import java.util.Scanner;
 
+// 抽象形状类
 abstract class Shape {
-    double getArea() {
-        return 0;
-    }
+    public abstract double getPerimeter();
+    public abstract double getArea();
 }
 
-class Triangle extends Shape {
-    private double side1, side2, side3;
-
-    public Triangle(double side1, double side2, double side3) {
-        this.side1 = side1;
-        this.side2 = side2;
-        this.side3 = side3;
-    }
-
-    double getArea() {
-        if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
-            double s = (side1 + side2 + side3) / 2;
-            return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
-        } else {
-            return 0;
-        }
-    }
-}
-
+// 矩形类
 class Rectangle extends Shape {
-    private double width, height;
+    private double width;
+    private double height;
 
     public Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
     }
 
-    double getArea() {
+    @Override
+    public double getPerimeter() {
+        return 2 * (width + height);
+    }
+
+    @Override
+    public double getArea() {
         return width * height;
+    }
+}
+
+// 圆形类
+class Circle extends Shape {
+    private int radius;
+
+    public Circle(int radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double a = scanner.nextDouble();
-        double b = scanner.nextDouble();
-        double c = scanner.nextDouble();
-        double width = scanner.nextDouble();
-        double height = scanner.nextDouble();
 
-        Triangle triangle = new Triangle(a, b, c);
-        Rectangle rectangle = new Rectangle(width, height);
+        // 读取形状数量
+        int n = scanner.nextInt();
 
-        Shape[] shapes = new Shape[2];
-        shapes[0] = triangle;
-        shapes[1] = rectangle;
+        // 创建数组存储不同形状
+        Shape[] shapes = new Shape[n];
 
-        System.out.printf("%.3f\n", shapes[0].getArea());
-        System.out.printf("%.3f\n", shapes[1].getArea());
+        // 读取每个形状
+        for (int i = 0; i < n; i++) {
+            String type = scanner.next(); // 读取形状类型（rect 或 cir）
+            if ("rect".equals(type)) {
+                // 读取矩形的宽和高
+                double width = scanner.nextDouble();
+                double height = scanner.nextDouble();
+                shapes[i] = new Rectangle(width, height);
+            } else if ("cir".equals(type)) {
+                // 读取圆形的半径
+                int radius = scanner.nextInt();
+                shapes[i] = new Circle(radius);
+            }
+        }
+
+        // 计算总面积和总周长
+        double areaSum = 0;
+        double perimeterSum = 0;
+        for (Shape shape : shapes) {
+            areaSum += shape.getArea();
+            perimeterSum += shape.getPerimeter();
+        }
+
+        // 输出结果，保留三位小数
+        System.out.printf("%.3f\n", areaSum);
+        System.out.printf("%.3f\n", perimeterSum);
+
+        scanner.close();
     }
 }
