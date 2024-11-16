@@ -9,7 +9,7 @@ class DangerException extends Exception {
 }
 
 class Machine {
-    private String[] dangerKeywords = {"枪支", "弹药", "刀具", "汽油", "硫酸"};
+    private final String[] dangerKeywords = {"枪支", "弹药", "刀具", "汽油", "硫酸"};
 
     public void check(String name) throws DangerException {
         for (String keyword : dangerKeywords) {
