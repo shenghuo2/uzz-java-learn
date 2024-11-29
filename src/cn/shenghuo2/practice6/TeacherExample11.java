@@ -6,13 +6,16 @@ import java.util.TreeSet;
 // treeSet
 public class TeacherExample11 {
     public static void main(String[] args) {
-        TreeSet<Integer> ts = new TreeSet<Integer>();
-        ts.add(1);
-        ts.add(5);
-        ts.add(3);
-        ts.add(1);
-        for(int x:ts){
-            System.out.println(x);
+        TreeSet<Student> ts = new TreeSet<Student>();
+        Student s1 = new Student("zhangsan",1);
+        Student s2 = new Student("lisi",2);
+        Student s3 = new Student("lisi",2);
+        ts.add(s1);
+        ts.add(s2);
+        ts.add(s3);
+
+        for(Student st:ts){
+            System.out.println(st);
         }
     }
 }
