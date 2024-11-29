@@ -19,31 +19,31 @@ public class Teacher07 {
         }
     }
 }
-class Student{
-    String name;
-    int id;
-
-    public Student(String name, int id) {
-        super();
-        this.name = name;
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return id + ":" + name;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student student = (Student) o;
-        return id == student.id && Objects.equals(name, student.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(name);
-    }
-}
+//class Student{
+//    String name;
+//    int id;
+//
+//    public Student(String name, int id) {
+//        super();
+//        this.name = name;
+//        this.id = id;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return id + ":" + name;
+//    }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Student student = (Student) o;
+//        return id == student.id && Objects.equals(name, student.name);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hashCode(name);
+//    }
+//}
