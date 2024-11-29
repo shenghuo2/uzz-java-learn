@@ -6,11 +6,11 @@ import java.util.HashSet;
 // hashSet
 public class Teacher07 {
     public static void main(String[] args) {
-        HashSet hs = new HashSet();
-        hs.add("aa");
+        HashSet<String> hs = new HashSet<String>();
         hs.add("bb");
         hs.add("aa");
-        hs.add(12);
+        hs.add("aa");
+//        hs.add(12);
         for(Object o : hs) {
             System.out.println(o);
         }
