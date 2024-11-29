@@ -10,6 +10,7 @@ public class TeacherExample14 {
         hm.put("lisi",100);
         hm.put("wangwu",80);
         hm.put("zhangsan",95);
+        System.out.println(hm);
 
     }
 }
