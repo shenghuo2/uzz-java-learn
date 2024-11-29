@@ -1,6 +1,7 @@
 package cn.shenghuo2.practice6;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class TeacherExample14 {
@@ -12,11 +13,15 @@ public class TeacherExample14 {
         hm.put("zhangsan",95);
         System.out.println(hm);
 
-        Set s = hm.keySet();
-        for(Object o : s) {
-            Object v = hm.get(o);
-            System.out.println(o+":"+ v );
-        }
+//        Set s = hm.keySet();
+//        for(Object o : s) {
+//            Object v = hm.get(o);
+//            System.out.println(o+":"+ v );
+//        }
 
+        Set<Map.Entry<String, Integer>> en = hm.entrySet();
+        for(Map.Entry<String, Integer> entry : en) {
+            System.out.println(entry.getKey()+":"+entry.getValue());
+        }
     }
 }
