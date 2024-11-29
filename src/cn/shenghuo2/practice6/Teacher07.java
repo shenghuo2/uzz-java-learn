@@ -6,13 +6,30 @@ import java.util.HashSet;
 // hashSet
 public class Teacher07 {
     public static void main(String[] args) {
-        HashSet<String> hs = new HashSet<String>();
-        hs.add("bb");
-        hs.add("aa");
-        hs.add("aa");
-//        hs.add(12);
-        for(Object o : hs) {
-            System.out.println(o);
+        HashSet<Student> hs = new HashSet<Student>();
+        Student s1 = new Student("zhangsan",1);
+        Student s2 = new Student("lisi",2);
+        Student s3 = new Student("lisi",2);
+        hs.add(s1);
+        hs.add(s2);
+        hs.add(s3);
+        for (Student student : hs) {
+            System.out.println(student);
         }
+    }
+}
+class Student{
+    String name;
+    int id;
+
+    public Student(String name, int id) {
+        super();
+        this.name = name;
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return id + ":" + name;
     }
 }
