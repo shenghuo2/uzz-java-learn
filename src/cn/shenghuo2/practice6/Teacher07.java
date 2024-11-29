@@ -1,6 +1,7 @@
 package cn.shenghuo2.practice6;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 // 11.29 周五 下午78节（换课）
 // hashSet
@@ -31,5 +32,18 @@ class Student{
     @Override
     public String toString() {
         return id + ":" + name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && Objects.equals(name, student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 }
