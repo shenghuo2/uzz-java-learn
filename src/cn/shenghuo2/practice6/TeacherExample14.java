@@ -12,5 +12,11 @@ public class TeacherExample14 {
         hm.put("zhangsan",95);
         System.out.println(hm);
 
+        Set s = hm.keySet();
+        for(Object o : s) {
+            Object v = hm.get(o);
+            System.out.println(o+":"+ v );
+        }
+
     }
 }
