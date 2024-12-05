@@ -9,7 +9,7 @@ public class TeacherExample13 {
         FileInputStream fis = new FileInputStream("/Users/shenghuo2/Downloads/Timna_3eaa044535d9b8d3289899d9f9c00119.zip");
         FileOutputStream fos = new FileOutputStream("target.zip");
 
-        int b;
+        int b; 
         long a = System.currentTimeMillis();
         while ((b = fis.read()) != -1) {
             fos.write(b);
